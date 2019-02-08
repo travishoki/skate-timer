@@ -20,34 +20,12 @@ class Timer extends Component {
             counting: false,
         };
 
-        this.onClickStartTimer = this.onClickStartTimer.bind(this);
-        this.onClickGetReadyText = this.onClickGetReadyText.bind(this);
+        this.rollEndText = this.rollEndText.bind(this);
+        this.rollGetReadyText = this.rollGetReadyText.bind(this);
+        this.rollTimerTimerText = this.rollTimerTimerText.bind(this);
     }
 
-    onClickStartTimer() {
-        let timerCount = this.props.timerInitial;
-        let timerText = getTimerCountTimerText(timerCount);
-
-        this.setState({
-            timerText: timerText,
-            counting: true
-        });
-
-        let timer = setInterval(() => {
-            timerCount -= 1;
-
-            timerText = getTimerCountTimerText(timerCount);
-            this.setState({ timerText: timerText });
-
-            if (timerCount <= 0) {
-                this.setState({ counting: false });
-                this.props.onClearSkater();
-                clearInterval(timer);
-            }
-        }, 1000);
-    }
-
-    onClickGetReadyText() {
+    rollGetReadyText() {
         this.setState({ counting: true });
 
         const textArray = [
@@ -68,9 +46,43 @@ class Timer extends Component {
 
             if (textArrayCounter >= textArray.length) {
                 clearInterval(timer);
-                this.onClickStartTimer();
+                this.rollTimerTimerText();
             }
         }, 750);
+    }
+
+    rollTimerTimerText() {
+        let timerCount = this.props.timerInitial;
+        let timerText = getTimerCountTimerText(timerCount);
+
+        this.setState({
+            timerText: timerText,
+            counting: true
+        });
+
+        let timer = setInterval(() => {
+            timerCount -= 1;
+
+            timerText = getTimerCountTimerText(timerCount);
+            this.setState({ timerText: timerText });
+
+            if (timerCount <= 0) {
+                this.rollEndText();
+                clearInterval(timer);
+            }
+        }, 1000);
+    }
+
+    rollEndText() {
+        this.setState({
+            timerText: 'Time!',
+        });
+
+        let timer = setInterval(() => {
+            this.setState({ counting: false });
+            this.props.onClearSkater();
+            clearInterval(timer);
+        }, 1000);
     }
 
     render() {
@@ -86,7 +98,7 @@ class Timer extends Component {
                     <div className="controls">
                         <button
                             className="button"
-                            onClick={this.onClickGetReadyText}
+                            onClick={this.rollGetReadyText}
                         >Battle</button>
                         <button
                             className="button"
