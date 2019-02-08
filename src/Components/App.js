@@ -5,22 +5,35 @@ import SelectedSkater from './SelectedSkater';
 import Skater from './Skater';
 import Versus from './Versus';
 
+const getNamesFromUrl = () => {
+    const url = window.location.href;
+
+    const regex = /http:\/\/localhost:3000\/(.*)/;
+    let urlNames = url.match(regex)[1];
+
+    if (urlNames === '') {
+        return 'Milo/Milo';
+    }
+
+    return urlNames;
+};
+
+const getSkaterNames = () => getNamesFromUrl()
+    .split('/')
+    .map((urlPart, index) => ({
+        id: (index + 1),
+        name: urlPart
+    }));
+
+const timerInitial = 3;
+
 class App extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
             selectedSkaterId: null,
-            skaters: [
-                {
-                    id: 1,
-                    name: 'Tony'
-                },
-                {
-                    id: 2,
-                    name: 'Andy'
-                }
-            ],
+            skaters: getSkaterNames(),
             winnerSelected: false
         };
 
@@ -71,6 +84,8 @@ class App extends Component {
                         onClearSkater={this.onClearSkater}
                         onSelectWinner={this.onSelectWinner}
                         selectedSkaterId={this.state.selectedSkaterId}
+                        timerInitial={timerInitial}
+
                     />
                 }
                 <Logo />

@@ -1,8 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 
-const timerInitial = 5;
-
 const getTimerCountTimerText = (timerCount) => {
     const minutes = Math.floor(timerCount / 60);
     const seconds = timerCount - (minutes * 60);
@@ -27,7 +25,7 @@ class Timer extends Component {
     }
 
     onClickStartTimer() {
-        let timerCount = timerInitial;
+        let timerCount = this.props.timerInitial;
         let timerText = getTimerCountTimerText(timerCount);
 
         this.setState({
@@ -88,12 +86,12 @@ class Timer extends Component {
                     <div className="controls">
                         <button
                             className="button"
-                            onClick={this.props.onSelectWinner}
-                        >Winner</button>
-                        <button
-                            className="button"
                             onClick={this.onClickGetReadyText}
                         >Battle</button>
+                        <button
+                            className="button"
+                            onClick={this.props.onSelectWinner}
+                        >Winner</button>
                     </div>
                 )}
             </Fragment>
@@ -105,6 +103,7 @@ Timer.propTypes = {
     onClearSkater: PropTypes.func.isRequired,
     onSelectWinner: PropTypes.func.isRequired,
     selectedSkaterId: PropTypes.number,
+    timerInitial: PropTypes.number.isRequired,
 };
 
 export default Timer;
