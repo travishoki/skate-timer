@@ -38,20 +38,21 @@ class App extends Component {
     render() {
         return (
             <Fragment>
-                <Logo />
-                <div className="title-container">
-                    {this.state.skaters.map(skater => (
-                        <Skater
-                            key={skater.id}
+                {!this.state.selectedSkaterId &&
+                    <div className="title-container">
+                        {this.state.skaters.map(skater => (
+                            <Skater
+                                key={skater.id}
+                                selectedSkaterId={this.state.selectedSkaterId}
+                                onClickSkater={this.onClickSkater}
+                                {...skater}
+                            />
+                        ))}
+                        <Versus
                             selectedSkaterId={this.state.selectedSkaterId}
-                            onClickSkater={this.onClickSkater}
-                            {...skater}
                         />
-                    ))}
-                    <Versus
-                        selectedSkaterId={this.state.selectedSkaterId}
-                    />
-                </div>
+                    </div>
+                }
                 <SelectedSkater
                     selectedSkaterId={this.state.selectedSkaterId}
                     skaters={this.state.skaters}
@@ -60,6 +61,7 @@ class App extends Component {
                     onClearSkater={this.onClearSkater}
                     selectedSkaterId={this.state.selectedSkaterId}
                 />
+                <Logo />
             </Fragment>
         );
     }

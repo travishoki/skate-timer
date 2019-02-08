@@ -14,9 +14,6 @@ body {
     padding: 0;
 }
 
-
-
-
 .title-container {
     height: 230px;
     overflow: hidden;
@@ -54,26 +51,17 @@ body {
     padding: 0 50px;
     text-transform: uppercase;
 }
-.skater-name-item.active {
-    width: 75%;
-}
-.skater-name-item.active .skater-name {
-    display: none;
-}
-.skater-name-item.inactive {
-    width: 25%;
-}
-.skater-name-item.inactive .skater-name {
-    font-size: 50px;
-}
 
 
 .selected-skater {
     font-family: arfmoochikncheez;
     font-size: 400px;
-    margin: 0;
+    margin-top: -400px;
+    position: fixed;
     text-align: center;
     text-transform: uppercase;
+    top: 50%;
+    width: 100%;
 }
 
 .controls {
@@ -99,7 +87,10 @@ body {
 .timer-label {
     font-size: 200px;
     margin: 0;
+    position: fixed;
     text-align: center;
+    top: 50%;
+    width: 100%;
 }
 
 .logo {
