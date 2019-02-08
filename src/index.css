@@ -1,0 +1,103 @@
+/* Fonts
+-----------------------------------*/
+@font-face {
+    font-family: arfmoochikncheez;
+    src: url(./fonts/arfmoochikncheez.ttf);
+}
+
+/* Style
+-----------------------------------*/
+body {
+    background: #1b2036;
+    color: white;
+    margin: 50px 0 0 0;
+    padding: 0;
+}
+
+
+
+
+.title-container {
+    overflow: hidden;
+}
+.skater-name-item {
+    width: 50%;
+}
+.skater-name-item:first-of-type {
+    float: left;
+    text-align: right;
+}
+.skater-name-item:last-of-type {
+    float: right;
+    text-align: left;
+}
+.skater-name {
+    color: white;
+    cursor: pointer;
+    font-size: 200px;
+    font-family: arfmoochikncheez;
+    padding: 0 50px;
+    text-transform: uppercase;
+}
+.skater-name-item.active {
+    width: 75%;
+}
+.skater-name-item.active .skater-name {
+    display: none;
+}
+.skater-name-item.inactive {
+    width: 25%;
+}
+.skater-name-item.inactive .skater-name {
+    font-size: 50px;
+}
+
+
+.selected-skater {
+    font-family: arfmoochikncheez;
+    font-size: 400px;
+    margin: 0;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.controls {
+    bottom: 20px;
+    position: fixed;
+    right: 20px;
+}
+
+
+.timer-button {
+    background: #405083;
+    border-radius: 10px;
+    border: none;
+    color: white;
+    cursor: pointer;
+    display: block;
+    font-size: 30px;
+    height: 50px;
+    line-height: 50px;
+    margin: 0 auto;
+    width: 200px;
+}
+.timer-label {
+    font-size: 200px;
+    margin: 0;
+    text-align: center;
+}
+
+.logo {
+    bottom: 20px;
+    left: 20px;
+    position: fixed;
+    width: 250px;
+}
+
+.versus-img {
+    position: fixed;
+    left: 50%;
+    margin-left: -75px;
+    top: 170px;
+    width: 150px;
+}
