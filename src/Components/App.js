@@ -4,26 +4,9 @@ import Timer from './Timer';
 import SelectedSkater from './SelectedSkater';
 import Skater from './Skater';
 import Versus from './Versus';
-
-const getNamesFromUrl = () => {
-    const url = window.location.href;
-
-    const regex = /http:\/\/localhost:3000\/(.*)/;
-    let urlNames = url.match(regex)[1];
-
-    if (urlNames === '') {
-        return 'Milo/Milo';
-    }
-
-    return urlNames;
-};
-
-const getSkaterNames = () => getNamesFromUrl()
-    .split('/')
-    .map((urlPart, index) => ({
-        id: (index + 1),
-        name: urlPart
-    }));
+import {
+    getSkaterNames
+} from './App.helpers';
 
 const timerInitial = 3;
 

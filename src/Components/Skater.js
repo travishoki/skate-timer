@@ -1,13 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
-const getClassName = (selectedSkaterId, id) => {
-    if (!selectedSkaterId) {
-        return null;
-    }
-
-    return selectedSkaterId === id ? 'active' : 'inactive';
-}
+import {
+    getClassName
+} from './Skater.helpers';
 
 const Skater = ({
     selectedSkaterId,
