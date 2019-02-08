@@ -48,10 +48,10 @@ class App extends Component {
                             {...skater}
                         />
                     ))}
+                    <Versus
+                        selectedSkaterId={this.state.selectedSkaterId}
+                    />
                 </div>
-                <Versus
-                    selectedSkaterId={this.state.selectedSkaterId}
-                />
                 <SelectedSkater
                     selectedSkaterId={this.state.selectedSkaterId}
                     skaters={this.state.skaters}

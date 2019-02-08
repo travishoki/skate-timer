@@ -18,8 +18,23 @@ body {
 
 
 .title-container {
+    height: 230px;
     overflow: hidden;
+    position: fixed;
+    margin-top: -115px;
+    top: 50%;
+    width: 100%;
 }
+
+.versus-img {
+    position: absolute;
+    left: 50%;
+    margin-left: -75px;
+    top: 120px;
+    width: 150px;
+}
+
+
 .skater-name-item {
     width: 50%;
 }
@@ -92,12 +107,4 @@ body {
     left: 20px;
     position: fixed;
     width: 250px;
-}
-
-.versus-img {
-    position: fixed;
-    left: 50%;
-    margin-left: -75px;
-    top: 170px;
-    width: 150px;
 }
