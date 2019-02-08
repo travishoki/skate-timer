@@ -87,9 +87,13 @@ class Timer extends Component {
                 ) : (
                     <div className="controls">
                         <button
-                            className="timer-button"
+                            className="button"
+                            onClick={this.props.onSelectWinner}
+                        >Winner</button>
+                        <button
+                            className="button"
                             onClick={this.onClickGetReadyText}
-                        >Start</button>
+                        >Battle</button>
                     </div>
                 )}
             </Fragment>
@@ -99,6 +103,7 @@ class Timer extends Component {
 
 Timer.propTypes = {
     onClearSkater: PropTypes.func.isRequired,
+    onSelectWinner: PropTypes.func.isRequired,
     selectedSkaterId: PropTypes.number,
 };
 

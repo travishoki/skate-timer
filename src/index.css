@@ -69,21 +69,22 @@ body {
     position: fixed;
     right: 20px;
 }
-
-
-.timer-button {
+.button {
     background: #405083;
     border-radius: 10px;
     border: none;
     color: white;
     cursor: pointer;
     display: block;
+    float: left;
     font-size: 30px;
     height: 50px;
     line-height: 50px;
-    margin: 0 auto;
+    margin: 0 0 0 20px;
     width: 200px;
 }
+
+
 .timer-label {
     font-size: 200px;
     margin: 0;
@@ -98,4 +99,15 @@ body {
     left: 20px;
     position: fixed;
     width: 250px;
+}
+
+.winner-section {
+    background: #405083;
+    font-size: 120px;
+    font-family: helvetica;
+    margin: 0;
+    position: fixed;
+    text-align: center;
+    top: 50%;
+    width: 100%;
 }

@@ -20,11 +20,13 @@ class App extends Component {
                     id: 2,
                     name: 'Andy'
                 }
-            ]
+            ],
+            winnerSelected: false
         };
 
         this.onClearSkater = this.onClearSkater.bind(this);
         this.onClickSkater = this.onClickSkater.bind(this);
+        this.onSelectWinner = this.onSelectWinner.bind(this);
     }
 
     onClickSkater(id) {
@@ -33,6 +35,10 @@ class App extends Component {
 
     onClearSkater() {
         this.setState({ selectedSkaterId: null });
+    }
+
+    onSelectWinner() {
+        this.setState({ winnerSelected: true });
     }
 
     render() {
@@ -57,10 +63,16 @@ class App extends Component {
                     selectedSkaterId={this.state.selectedSkaterId}
                     skaters={this.state.skaters}
                 />
-                <Timer
-                    onClearSkater={this.onClearSkater}
-                    selectedSkaterId={this.state.selectedSkaterId}
-                />
+                {this.state.winnerSelected &&
+                    <div className="winner-section">WINNER!</div>
+                }
+                {!this.state.winnerSelected &&
+                    <Timer
+                        onClearSkater={this.onClearSkater}
+                        onSelectWinner={this.onSelectWinner}
+                        selectedSkaterId={this.state.selectedSkaterId}
+                    />
+                }
                 <Logo />
             </Fragment>
         );
