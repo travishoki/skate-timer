@@ -1,5 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
+import BattleIcon from '../SVG/BattleIcon';
+import TrophyIcon from '../SVG/TrophyIcon';
 import {
     getTimerCountTimerText
 } from './Timer.helpers';
@@ -92,11 +94,15 @@ class Timer extends Component {
                         <button
                             className="button"
                             onClick={this.rollGetReadyText}
-                        >Battle</button>
+                        >
+                            <BattleIcon />
+                        </button>
                         <button
                             className="button"
                             onClick={this.props.onSelectWinner}
-                        >Winner</button>
+                        >
+                            <TrophyIcon />
+                        </button>
                     </div>
                 )}
             </Fragment>

@@ -55,13 +55,16 @@ class App extends Component {
                         />
                     </div>
                 }
+
                 <SelectedSkater
                     selectedSkaterId={this.state.selectedSkaterId}
                     skaters={this.state.skaters}
                 />
+
                 {this.state.winnerSelected &&
                     <div className="winner-section">WINNER!</div>
                 }
+
                 {!this.state.winnerSelected &&
                     <Timer
                         onClearSkater={this.onClearSkater}
@@ -70,6 +73,26 @@ class App extends Component {
                         timerInitial={timerInitial}
 
                     />
+                }
+
+                {!this.state.selectedSkaterId &&
+                    <div className="controls">
+                        {this.state.skaters.map((skater, index) => (
+                            <button
+                                key={skater.id}
+                                className="button"
+                                onClick={() => {
+                                    if (this.state.selectedSkaterId === skater.id) {
+                                        this.onClickSkater(null);
+                                    } else {
+                                        this.onClickSkater(skater.id);
+                                    }
+                                }}
+                            >
+                                P{index+1}
+                            </button>
+                        ))}
+                    </div>
                 }
                 <Logo />
             </Fragment>

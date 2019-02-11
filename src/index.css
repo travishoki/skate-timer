@@ -84,10 +84,16 @@ body {
     display: block;
     float: left;
     font-size: 30px;
-    height: 50px;
-    line-height: 50px;
+    height: 75px;
+    line-height: 75px;
     margin: 0 0 0 20px;
-    width: 200px;
+    outline: none;
+    width: 75px;
+}
+.button svg {
+    height: 40px;
+    margin-top: 16px;
+    width: 40px;
 }
 
 /* Controls
