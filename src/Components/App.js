@@ -8,7 +8,7 @@ import {
     getSkaterNames
 } from './App.helpers';
 
-const timerInitial = 3;
+const timerInitial = 60;
 
 class App extends Component {
     constructor(props) {
